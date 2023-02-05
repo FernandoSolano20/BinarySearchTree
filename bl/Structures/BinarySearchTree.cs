@@ -82,16 +82,8 @@ public class BinarySearchTree
         }
 
         stringBuilder.Append($"{aux.Value}, ");
-
-        if (aux.Left != null)
-        {
-            PreOrder(aux.Left, stringBuilder);
-        }
-
-        if (aux.Rigth != null)
-        {
-            PreOrder(aux.Rigth, stringBuilder);
-        }
+        PreOrder(aux.Left, stringBuilder);
+        PreOrder(aux.Rigth, stringBuilder);
 
         return stringBuilder;
     }
@@ -103,17 +95,9 @@ public class BinarySearchTree
             return stringBuilder;
         }
 
-        if (aux.Left == null)
-        {
-            stringBuilder.Append($"{aux.Value}, ");
-            InOrder(aux.Rigth, stringBuilder);
-        }
-        else
-        {
-            InOrder(aux.Left, stringBuilder);
-            stringBuilder.Append($"{aux.Value}, ");
-            InOrder(aux.Rigth, stringBuilder);
-        }
+        InOrder(aux.Left, stringBuilder);
+        stringBuilder.Append($"{aux.Value}, ");
+        InOrder(aux.Rigth, stringBuilder);
 
         return stringBuilder;
     }
@@ -125,17 +109,9 @@ public class BinarySearchTree
             return stringBuilder;
         }
 
-        if (aux.Left == null)
-        {
-            PostOrder(aux.Rigth, stringBuilder);
-            stringBuilder.Append($"{aux.Value}, ");
-        }
-        else
-        {
-            PostOrder(aux.Left, stringBuilder);
-            PostOrder(aux.Rigth, stringBuilder);
-            stringBuilder.Append($"{aux.Value}, ");
-        }
+        PostOrder(aux.Left, stringBuilder);
+        PostOrder(aux.Rigth, stringBuilder);
+        stringBuilder.Append($"{aux.Value}, ");
 
         return stringBuilder;
     }
